@@ -21,7 +21,12 @@
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             
-            
+            <h2>科目</h2>
+            <select name="post[categories_id]">
+                @foreach($categories as $categorylist)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+            </select>
             <input type="submit" value="store">
         </form>
         <div class='footer'>

@@ -11,7 +11,7 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
-        'class_id',
+        'category_id',
         'thread_id',
         'user_id',
         'nickname',
