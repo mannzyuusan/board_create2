@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <title>理系掲示板</title>
@@ -9,11 +9,19 @@
     <body>
         <h1>理系掲示板</h1>
         <div class='posts'>
-            <div class='post'>
-                <h2 class='title'>Title</h2>
-                <p class='body'>This is a sample body.</p>
+            @foreach ($posts as $postlist)
+                <div class='postlist'>
+                    <h2 class='title'>{{ $postlist->title }}</h2>
+                    <p class='body'>{{ $postlist->body }}</p>
+                </div>
+            @endforeach
+
                 <a href="/home/create">[create]</a>
+
             </div>
-        </div>
+
+                <div class='paginate'>
+                    {{ $posts->links() }}
+                </div>
     </body>
 </html>
