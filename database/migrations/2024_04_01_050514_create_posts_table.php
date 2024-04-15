@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('body');
-            $table->foreignId('class_id')->constrained();
+            $table->foreignId('category_id')->constrained();
             $table->foreignId('thread_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->string('nickname');//ユーザー名
