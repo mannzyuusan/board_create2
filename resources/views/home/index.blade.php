@@ -8,6 +8,14 @@
     </head>
     <body>
         <h1>理系掲示板</h1>
+        
+        <div>
+  <form action="{{ route('home.index') }}" method="GET">
+    <input type="text" name="keyword" value="{{ $keyword }}">
+    <input type="submit" value="検索">
+  </form>
+</div>
+        
         <div class='posts'>
             @foreach ($posts as $postlist)
                 <div class='postlist'>
@@ -20,8 +28,8 @@
 
             </div>
 
-                <div class='paginate'>
-                    {{ $posts->links() }}
-                </div>
+            <div class='paginate'>
+                {{ $posts->links() }}
+            </div>
     </body>
 </html>
