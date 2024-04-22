@@ -14,11 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('reply_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->id();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
