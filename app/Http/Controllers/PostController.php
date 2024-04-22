@@ -11,10 +11,20 @@ use Auth;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function index(Post $post,Request $request)
     {
-        return view('home.index')->with(['posts' => $post->getPaginateByLimit(2)]);
-        //return view('home.index')->with(['posts' => $post->get()]);
+        $keyword = $request->input('keyword');
+
+        $query = Post::query();
+
+        if(!empty($keyword)) {
+            $query->where('title', 'LIKE', "%{$keyword}%")
+                ->orWhere('body', 'LIKE', "%{$keyword}%");
+        }
+
+        $posts = $query->paginate(2);
+        return view('home.index',compact('posts','keyword'));
+        //getPaginateByLimit()はPost.phpで定義したメソッドです。
     }
 
     public function create(Request $request, Category $category, Thread $thread)
