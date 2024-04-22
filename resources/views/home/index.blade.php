@@ -6,7 +6,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         
-    {{ $reply->likes->count() }}
+    
     </head>
     <body>
         <h1>理系掲示板</h1>
@@ -23,6 +23,17 @@
                 <div class='postlist'>
                     <h2 class='title'>{{ $postlist->title }}</h2>
                     <p class='body'>{{ $postlist->body }}</p>
+                    {{ optional($postlist->likes)->count() ?? 0 }}
+                    
+                        <div>
+                            @if($postlist->is_liked_by_auth_user())
+                                <a href="{{ route('reply.unlike', ['id' => $postlist->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $postlist->likes->count() }}</span></a>
+                    
+                    
+                            @else
+                                <a href="{{ route('reply.like', ['id' => $postlist->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $postlist->likes->count() }}</span></a>
+                            @endif
+                        </div>
                 </div>
             @endforeach
 
@@ -34,15 +45,7 @@
             {{ $posts->links() }}
         </div>
             
-            <div>
-                @if($reply->is_liked_by_auth_user())
-                    <a href="{{ route('reply.unlike', ['id' => $reply->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $reply->likes->count() }}</span></a>
-                    
-                    
-                @else
-                    <a href="{{ route('reply.like', ['id' => $reply->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $reply->likes->count() }}</span></a>
-                @endif
-            </div>
+            
 
     </body>
 </html>

@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\RepliesController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +22,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home/create', [PostController::class, 'create'])->name('home.create');
     Route::post('/posts',[PostController::class, 'store'])->name('home.store');
 //いいね機能のルーティング追加
-    Route::get('/reply/like/{id}', [RepliesController::class,'like'])->name('reply.like');
-    Route::get('/reply/unlike/{id}',[RepliesController::class,'unlike'] )->name('reply.unlike');
+    Route::get('/home/like/{id}', [LikeController::class,'like'])->name('reply.like');
+    Route::get('/home/unlike/{id}',[LikeController::class,'unlike'] )->name('reply.unlike');
 });
 
 

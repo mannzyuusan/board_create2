@@ -1,9 +1,11 @@
 <?php
+namespace App\Http\Controllers;
 
 use App\Models\Like;
-use App\Models\Reply;
+use App\Models\Post;
+use Auth;
 
-class RepliesController extends Controller
+class LikeController extends Controller
 {
   // only()の引数内のメソッドはログイン時のみ有効
   public function __construct()
@@ -11,7 +13,7 @@ class RepliesController extends Controller
     $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
   }
 
-  ...
+  
 
  /**
   * 引数のIDに紐づくリプライにLIKEする
@@ -22,11 +24,11 @@ class RepliesController extends Controller
   public function like($id)
   {
     Like::create([
-      'reply_id' => $id,
+      'post_id' => $id,
       'user_id' => Auth::id(),
     ]);
 
-    session()->flash('success', 'You Liked the Reply.');
+    session()->flash('success', 'You Liked the Post.');
 
     return redirect()->back();
   }
@@ -39,14 +41,14 @@ class RepliesController extends Controller
    */
   public function unlike($id)
   {
-    $like = Like::where('reply_id', $id)->where('user_id', Auth::id())->first();
+    $like = Like::where('post_id', $id)->where('user_id', Auth::id())->first();
     $like->delete();
 
-    session()->flash('success', 'You Unliked the Reply.');
+    session()->flash('success', 'You Unliked the Post.');
 
     return redirect()->back();
   }
 
-...
+
 
 }
