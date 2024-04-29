@@ -38,7 +38,8 @@
             @endforeach
 
                 <a href="/home/create">[create]</a>
-
+            
+                <a href="/like/sort">[いいね順で並び替える]</a>
         </div>
 
         <div class='paginate'>
