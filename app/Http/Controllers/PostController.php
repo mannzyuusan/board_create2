@@ -22,7 +22,10 @@ class PostController extends Controller
                 ->orWhere('body', 'LIKE', "%{$keyword}%");
         }
 
-        $posts = $query->paginate(2);
+        $posts = $query->withCount('likes')
+                       ->orderBy('likes_count', 'desc')
+                       ->paginate(2);
+                       
         return view('home.index',compact('posts','keyword'));
         //getPaginateByLimit()はPost.phpで定義したメソッドです。
     }
@@ -49,5 +52,5 @@ class PostController extends Controller
         return redirect('/home/');
     }
     
-    
+
 }

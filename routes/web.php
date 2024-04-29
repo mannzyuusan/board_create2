@@ -24,6 +24,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //いいね機能のルーティング追加
     Route::get('/home/like/{id}', [LikeController::class,'like'])->name('reply.like');
     Route::get('/home/unlike/{id}',[LikeController::class,'unlike'] )->name('reply.unlike');
+//いいね機能のソート追加
+    Route::get('/like/sort',[postController::class,'index'])->name('like.sort');
 });
 
 
