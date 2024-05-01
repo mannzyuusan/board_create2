@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>理系掲示板</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
+<x-app-layout>
+    <x-slot name="index">
+    </x-slot>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        
     
     <h1>理系掲示板</h1>
         <form action="/posts" method="POST">
@@ -47,5 +44,4 @@
             <a href="/home">戻る</a>
         </div>
         
-    
-</html>
+ </x-app-layout>

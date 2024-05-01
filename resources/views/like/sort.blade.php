@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>理系掲示板</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        
+
+    <x-app-layout>
+    <x-slot name="index">
+    </x-slot>
     
-    </head>
-    <body>
         <h1>理系掲示板</h1>
         
     <div>
@@ -19,20 +13,30 @@
     </div>
         
         <div class='posts'>
-    @foreach ($posts as $postlist)
-        <div class='postlist'>
-            <h2 class='title'>{{ $postlist->title }}</h2>
-            <p class='body'>{{ $postlist->body }}</p>
-            {{ optional($postlist->likes)->count() ?? 0 }}
-            <div>
-                @if($postlist->is_liked_by_auth_user())
-                    <a href="{{ route('reply.unlike', ['id' => $postlist->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $postlist->likes_count }}</span></a>
-                @else
-                    <a href="{{ route('reply.like', ['id' => $postlist->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $postlist->likes_count }}</span></a>
-                @endif
-            </div>
-        </div>
-    @endforeach
+            
+            @foreach ($posts as $postlist)
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class='postlist'>
+                            <h2 class='title'>{{ $postlist->title }}</h2>
+                            <p class='body'>{{ $postlist->body }}</p>
+                            <div class='postlist' data-likes="{{ optional($postlist->likes)->count() ?? 0 }}">
+                            
+                            <div>
+                                @if($postlist->is_liked_by_auth_user())
+                                    <a href="{{ route('reply.unlike', ['id' => $postlist->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $postlist->likes->count() }}</span></a>
+                        
+                        
+                                @else
+                                    <a href="{{ route('reply.like', ['id' => $postlist->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $postlist->likes->count() }}</span></a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            @endforeach
+                
 
                 <a href="/home/create">[create]</a>
             
@@ -42,8 +46,19 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
-            
-            
+     
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const postsList = document.getElementById('postsList');
+            const posts = Array.from(postsList.getElementsByClassName('postlist'));
 
-    </body>
-</html>
+            // Sort posts by likes in descending order
+            posts.sort((a, b) => b.dataset.likes - a.dataset.likes);
+
+            // Reorder posts in the DOM
+            posts.forEach(post => postsList.appendChild(post));
+        });
+    </script>
+            
+     
+    </x-app-layout>
