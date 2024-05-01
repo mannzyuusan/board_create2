@@ -11,25 +11,36 @@ use Auth;
 
 class PostController extends Controller
 {
-    public function index(Post $post,Request $request)
-    {
-        $keyword = $request->input('keyword');
+    public function index(Request $request, $categoryId = null)
+{
+    $keyword = $request->input('keyword');
 
-        $query = Post::query();
+    $query = Post::query();
 
-        if(!empty($keyword)) {
-            $query->where('title', 'LIKE', "%{$keyword}%")
-                ->orWhere('body', 'LIKE', "%{$keyword}%");
-        }
-        
-        $posts = $query->withCount('likes')
-                       ->orderBy('likes_count', 'desc')
-                       ->paginate(10);
-                       
-        return view('home.index',compact('posts','keyword'));
-        //getPaginateByLimit()はPost.phpで定義したメソッドです。
+    if (!empty($keyword)) {
+        $query->where('title', 'LIKE', "%{$keyword}%")
+            ->orWhere('body', 'LIKE', "%{$keyword}%");
     }
 
+    // カテゴリーIDが指定されている場合はそのカテゴリーに属する投稿のみを取得
+    if (!empty($categoryId)) {
+        $query->where('category_id', $categoryId);
+    }
+
+    $posts = $query->withCount('likes')
+                   ->orderBy('likes_count', 'desc')
+                   ->paginate(10);
+                   
+    return view('home.index', compact('posts', 'keyword', 'categoryId'));
+}
+
+
+
+    public function cover(Category $category){
+        return view('home.main')->with(['categories'=> $category->get()]);
+    }
+    
+    
     public function create(Request $request, Category $category, Thread $thread)
     {
         return view('home.create')->with([

@@ -38,5 +38,17 @@ class PostsSeeder extends Seeder
             'nickname' => 'mannzyuu'
             
            ]);
+         
+         DB::table('posts')->insert([
+            'title' => 'test2',//一桁目がSemの4,二桁めがこのシート上の1
+            'body' => 'test用のデータをPostsSeederで入れてます2',
+            'category_id' => 31,
+            'thread_id' => 230,
+            'user_id' => 1,
+            'nickname' => 'mannzyuu'
+            
+           ]);
+           
+           
     }
 }

@@ -26,7 +26,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home/unlike/{id}',[LikeController::class,'unlike'] )->name('reply.unlike');
 //いいね機能のソート追加
     Route::get('/like/sort',[postController::class,'index'])->name('like.sort');
+
+//メインページからそれぞれの科目に飛ぶルーティング
+    Route::get('home/{category}',[postController::class,'index']);    
+    
+    Route::get('/main',[postController::class,'cover']);    
 });
+
 
 
 
