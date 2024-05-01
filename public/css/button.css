@@ -1,0 +1,16 @@
+a.btn--orange {
+  color: #fff;
+  background-color: #77EA73;
+  border-bottom: 12px solid #77EA73;
+}
+a.btn--orange:hover {
+  margin-top: 100px;
+  color: #fff;
+  background: #77C670;
+  border-top:12px solid #77C670;
+  border-bottom: 12px solid #77C670;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
