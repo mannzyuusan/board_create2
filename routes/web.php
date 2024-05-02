@@ -17,20 +17,21 @@ use App\Http\Controllers\LikeController;
 */
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/', [PostController::class, 'index'])->name('home.index');
-    Route::get('/home', [PostController::class, 'index'])->name('home.index');
+    Route::get('/', [PostController::class, 'cover'])->name('home.cover');
     Route::get('/home/create', [PostController::class, 'create'])->name('home.create');
     Route::post('/posts',[PostController::class, 'store'])->name('home.store');
 //いいね機能のルーティング追加
     Route::get('/home/like/{id}', [LikeController::class,'like'])->name('reply.like');
     Route::get('/home/unlike/{id}',[LikeController::class,'unlike'] )->name('reply.unlike');
 //いいね機能のソート追加
-    Route::get('/like/sort',[postController::class,'index'])->name('like.sort');
+    Route::get('/like/sort',[PostController::class,'index'])->name('like.sort');
 
 //メインページからそれぞれの科目に飛ぶルーティング
-    Route::get('home/{category}',[postController::class,'index']);    
-    
-    Route::get('/main',[postController::class,'cover']);    
+    Route::get('home/{category}',[PostController::class,'index']);    
+    //このcoverが一番サイトのはじめになる
+    Route::get('/main',[PostController::class,'cover'])->name('home.main');
+    //詳細画面に行くshow
+    Route::get('/home/{category}/{post}',[PostController::class,'show']);
 });
 
 
