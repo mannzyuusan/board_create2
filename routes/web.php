@@ -32,6 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/main',[PostController::class,'cover'])->name('home.main');
     //詳細画面に行くshow
     Route::get('/home/{category}/{post}',[PostController::class,'show']);
+
 });
 
 

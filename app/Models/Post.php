@@ -16,6 +16,7 @@ class Post extends Model
         'thread_id',
         'user_id',
         'nickname',
+        'image_url'
         ];
         
     public function getPaginateByLimit(int $limit_count = 2)

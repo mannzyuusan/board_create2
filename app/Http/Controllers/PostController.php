@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Thread;
 use App\Http\Requests\PostRequest;
 use Auth;
+use Cloudinary;  
 
 class PostController extends Controller
 {
@@ -61,8 +62,12 @@ class PostController extends Controller
     public function store(PostRequest $request, Post $post)
     {
         
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+       
+        
         $input = $request['post'];
         $input['user_id'] = Auth::id();//これでuser_idも取得できる
+        $input += ['image_url' => $image_url];
         $post->fill($input)->save();
         return redirect('/home/');
     }
