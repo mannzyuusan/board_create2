@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('thread_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->string('nickname');//ユーザー名
+            $table->string('image_url');
             $table->timestamps();
             $table->softDeletes();
         });

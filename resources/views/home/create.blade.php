@@ -5,7 +5,7 @@
         
     
     <h1>理系掲示板</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
              <h2>投稿名</h2>
                 <input type="text" name="post[nickname]" placeholder="表示される名前" value="{{ old('post.nickname')}}"/>
@@ -38,10 +38,15 @@
                     <option value="{{ $threadlist->id }}">{{ $threadlist->name }}</option>
                     @endforeach
             </select>
+            
+            <div class="image">
+                <input type="file" name="image">
+            </div>
+            
             <input type="submit" value="store">
         </form>
         <div class='footer'>
             <a href="/home">戻る</a>
         </div>
         
- </x-app-layout>
+</x-app-layout>
