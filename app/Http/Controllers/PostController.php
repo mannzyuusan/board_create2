@@ -12,7 +12,7 @@ use Cloudinary;
 
 class PostController extends Controller
 {
-    public function index(Request $request, $categoryId = null)
+    public function index(Request $request, $categoryId = null )
 {
     $keyword = $request->input('keyword');
 
@@ -39,6 +39,10 @@ class PostController extends Controller
 
     public function cover(Category $category){
         return view('home.main')->with(['categories'=> $category->get()]);
+    }
+    
+    public function show(Post $post){
+        return view('home.show')->with(['post' => $post]);
     }
     
     
