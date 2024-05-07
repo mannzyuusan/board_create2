@@ -6,19 +6,25 @@
         
     
         <body>
+            
         <h1 class="title">
-            @foreach($postId ad $postlist)
-            {{ $postlist->title }}
+            <p>{{$post->title}}</p>
+            <p>{{$post->body}}</p>
+            
+            <div>
+                <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+            </div>
+                      
         </h1>
         <div class="content">
             <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $postlist->body }}</p>    
+               
+                    
             </div>
         </div>
-            @endforeach
+            
         <div class="footer">
-            <a href="/main">戻る</a>
+            <a href="/home/{{$post->category_id}}">戻る</a>
         </div>
      
     </x-app-layout>

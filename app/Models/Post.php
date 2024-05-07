@@ -45,5 +45,10 @@ class Post extends Model
   public function likes()
   {
     return $this->hasMany(Like::class, 'post_id');
-}
+  }
+  
+  public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

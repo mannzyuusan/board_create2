@@ -25,14 +25,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home/unlike/{id}',[LikeController::class,'unlike'] )->name('reply.unlike');
 //いいね機能のソート追加
     Route::get('/like/sort',[PostController::class,'index'])->name('like.sort');
-
-//メインページからそれぞれの科目に飛ぶルーティング
-    Route::get('home/{category}',[PostController::class,'index']);    
     //このcoverが一番サイトのはじめになる
     Route::get('/main',[PostController::class,'cover'])->name('home.main');
+    
+    
+    
+   
+    //メインページからそれぞれの科目に飛ぶルーティング
+    Route::get('/home/{category}',[PostController::class,'index']);    
+    
     //詳細画面に行くshow
-    Route::get('/home/{category}/{post}',[PostController::class,'show']);
+    
+    Route::get('/home/{category}/{post}',[PostController::class,'show']);//home/31/1
+    
+    
 
+    
 });
 
 

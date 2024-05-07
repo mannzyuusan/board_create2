@@ -19,10 +19,10 @@
             
             @foreach ($posts as $postlist)
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="background:blue bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class='postlist'>
-                            <h2 class='title'>
-                                <a href="/home/{{$postlist->category_id}}/{{$postlist->id}}">{{ $postlist->title }}</a>
+                            <h2 class='title' >
+                                <a href="/home/{{$postlist->category_id}}/{{$postlist->id}}" class="btnlinestretches2">{{ $postlist->title }}</a>
                             </h2>
                             
                             <p class='body'>{{ $postlist->body }}</p>
