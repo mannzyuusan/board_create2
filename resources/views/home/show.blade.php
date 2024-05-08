@@ -12,7 +12,12 @@
             <p>{{$post->body}}</p>
             
             <div>
-                <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                
+                @if(!empty($post->image_url))
+                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                @else
+                    <p>画像がありません。</p>
+                @endif
             </div>
                       
         </h1>

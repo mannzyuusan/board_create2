@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         
     
-        <h1>理系掲示板</h1>
+        <h1>{{$category->name}}</h1>
         
             <div>
                 <form action="{{ route('home.main') }}" method="GET" class="search_container">
@@ -19,7 +19,7 @@
             
             @foreach ($posts as $postlist)
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="background:blue bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="background:blue bg-black overflow-hidden shadow-sm sm:rounded-lg">
                         <div class='postlist'>
                             <h2 class='title' >
                                 <a href="/home/{{$postlist->category_id}}/{{$postlist->id}}" class="btnlinestretches2">{{ $postlist->title }}</a>
@@ -30,13 +30,13 @@
                             
                                 <div>
                                     @if($postlist->is_liked_by_auth_user())
-                                        <a href="{{ route('reply.unlike', ['id' => $postlist->id]) }}" class="btn btn-success btn-sm">
+                                        <a href="{{ route('reply.unlike', ['id' => $postlist->id]) }}" class="btn-success btn-sm">
                                             <img src="{{ asset('/img/heart.jpg') }}" style="width:25px; height:auto;">
                                         </a>{{ optional($postlist->likes)->count() ?? 0 }}
                             
                             
                                     @else
-                                        <a href="{{ route('reply.like', ['id' => $postlist->id]) }}" class="btn btn-secondary btn-sm">
+                                        <a href="{{ route('reply.like', ['id' => $postlist->id]) }}" class="btn-secondary btn-sm">
                                             <img src="{{ asset('/img/unheart.png') }}" style="width:20px; height:auto;">
                                         </a>{{ optional($postlist->likes)->count() ?? 0 }}
                                     @endif

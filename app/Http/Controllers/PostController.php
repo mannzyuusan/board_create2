@@ -12,8 +12,9 @@ use Cloudinary;
 
 class PostController extends Controller
 {
-    public function index(Request $request, $categoryId = null)
+    public function index(Request $request, Category $category)
 {
+    
     $keyword = $request->input('keyword');
 
     $query = Post::query();
@@ -24,15 +25,15 @@ class PostController extends Controller
     }
 
     // カテゴリーIDが指定されている場合はそのカテゴリーに属する投稿のみを取得
-    if (!empty($categoryId)) {
-        $query->where('category_id', $categoryId);
+    if (!empty($category)) {
+        $query->where('category_id', $category->id);
     }
 
     $posts = $query->withCount('likes')
                    ->orderBy('likes_count', 'desc')
                    ->paginate(10);
                    
-    return view('home.index', compact('posts', 'keyword', 'categoryId'));
+    return view('home.index', compact('posts', 'keyword' ,'category' ));
 }
 
 
