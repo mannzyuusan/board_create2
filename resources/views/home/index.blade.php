@@ -19,7 +19,7 @@
             
             @foreach ($posts as $postlist)
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="background:blue bg-black overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="background:blue bg-cyan-10 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class='postlist'>
                             <h2 class='title' >
                                 <a href="/home/{{$postlist->category_id}}/{{$postlist->id}}" class="btnlinestretches2">{{ $postlist->title }}</a>
