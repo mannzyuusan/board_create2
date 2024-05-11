@@ -8,7 +8,7 @@
         <h1 class="fuchidori">{{$category->name}}</h1>
         
             <div>
-                <form action="{{ route('home.main') }}" method="GET" class="search_container">
+                <form action="{{ route('home.index', ['category' => $category->id]) }}" method="GET" class="search_container">
                     <input type="text" name="keyword" value="{{ $keyword }}" >
                     <input type="submit" value="検索">
                 </form>
@@ -32,13 +32,13 @@
                                     @if($postlist->is_liked_by_auth_user())
                                         <a href="{{ route('reply.unlike', ['id' => $postlist->id]) }}" class="btn-success btn-sm">
                                             <img src="{{ asset('/img/heart.png') }}" style="width:25px; height:auto;">
-                                        </a>{{ optional($postlist->likes)->count() ?? 0 }}
+                                        </a>  {{ optional($postlist->likes)->count() ?? 0 }}
                             
                             
                                     @else
                                         <a href="{{ route('reply.like', ['id' => $postlist->id]) }}" class="btn-secondary btn-sm">
                                             <img src="{{ asset('/img/unheart.png') }}" style="width:20px; height:auto;">
-                                        </a>{{ optional($postlist->likes)->count() ?? 0 }}
+                                        </a>  {{ optional($postlist->likes)->count() ?? 0 }}
                                     @endif
                                 </div>
                         </div>
@@ -48,7 +48,7 @@
             @endforeach
                 
 
-                
+            <a href="/main" class="btn_04">戻る</a>
             
                 
         </div>
