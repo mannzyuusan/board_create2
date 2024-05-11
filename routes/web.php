@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
    
     //メインページからそれぞれの科目に飛ぶルーティング
-    Route::get('/home/{category}',[PostController::class,'index']);    
+    Route::get('/home/{category}',[PostController::class,'index'])->name('home.index'); 
     
     //詳細画面に行くshow
     
