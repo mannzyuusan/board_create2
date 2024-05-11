@@ -1,19 +1,4 @@
-a.btn--orange {
-  color: #fff;
-  background-color: #77EA73;
-  border-bottom: 12px solid #77EA73;
-}
-a.btn--orange:hover {
-  margin-top: 100px;
-  color: #fff;
-  background: #77C670;
-  border-top:12px solid #77C670;
-  border-bottom: 12px solid #77C670;
-}
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
+
 
 /*== ボタン共通設定 */
 .btn{
@@ -24,6 +9,7 @@ a.btn--shadow {
 	text-decoration: none;
 	display: inline-block;
    	border: 1px solid #555;/* ボーダーの色と太さ */
+   	background: white; /* 背景色を白に設定 */
     padding: 10px 30px;
     text-align: center;
     outline: none;
@@ -116,4 +102,44 @@ a.btn--shadow {
 	width:calc(100% - 2px);
 	height:calc(100% - 2px);
 	border-color:#666
+}
+
+a.btn_04 {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 200px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	border: 2px solid #27acd9;
+	background: #27acd9;
+	color: #fff;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+a.btn_04:hover {
+	color: #27acd9;
+	background: #fff;
+}
+
+.button2 {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 10pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #000000;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 0.2em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #000000;    /* 枠の指定 */
+}
+.button2:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000000;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }

@@ -3,21 +3,24 @@
     </x-slot>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         
+        
+        <div class="background:blue bg-cyan-100 overflow-hidden shadow-sm sm:rounded-lg">
+        
     
-    <h1>理系掲示板</h1>
+    <h1 class="fuchidori">理系掲示板</h1>
         <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
-             <h2>投稿名</h2>
+             <h2 >投稿名</h2>
                 <input type="text" name="post[nickname]" placeholder="表示される名前" value="{{ old('post.nickname')}}"/>
                 <p class='nickname__error' style="color:red">{{ $errors->first('post.nickname') }}</p>
             <div class="title">
-                <h2>Title</h2>
+                <h2>題名</h2>
                 <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title')}}"/>
                 <p class='title__error' style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div class="body">
-                <h2>Body</h2>
-                <textarea name="post[body]" placeholder="今週の内容" >{{old('post.body')}}</textarea>
+                <h2>本文</h2>
+                <textarea name="post[body]" placeholder="今週の内容は～" >{{old('post.body')}}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             
@@ -39,14 +42,17 @@
                     @endforeach
             </select>
             
+            <br>
+            <br>
+            
             <div class="image">
+                <h2>画像の追加</h2>
                 <input type="file" name="image">
             </div>
             
-            <input type="submit" value="store">
+            <input type="submit" value="投稿する" class="button2">
         </form>
-        <div class='footer'>
-            <a href="/home/{category}">戻る</a>
-        </div>
+        <br>
+        
         
 </x-app-layout>

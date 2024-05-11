@@ -9,8 +9,12 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     
-                     <x-nav-link :href="route('home.main')" :active="request()->routeIs('home.main')">
-                        {{ __('main') }}
+                    <x-nav-link :href="route('home.main')" :active="request()->routeIs('home.main')">
+                        {{ __('ホーム') }}
+                    </x-nav-link>
+                
+                <x-nav-link :href="route('home.create')" :active="request()->routeIs('home.create')">
+                        {{ __('投稿作成') }}
                     </x-nav-link>
                     
                 </div>

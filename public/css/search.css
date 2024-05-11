@@ -27,7 +27,7 @@
   border-radius: 9px;
   margin-left: 10px;/*はみ出ないように調整*/
   margin-right: 10px;/*はみ出ないように調整*/
-  padding: 0.5em 0.5em 0.5em 2em;
+  padding: 0.5em 0.5em 0.5em 1em;
   
 }
 
@@ -38,6 +38,6 @@ ol li {
 ol li a {
   line-height: 1.5;
   padding: 0.5em 0;
-  font-size: 200%;
+  font-size: 100%;
 }
 

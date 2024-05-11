@@ -5,12 +5,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         
     
-        <h1>理系掲示板 mainページ</h1>
-        
-        
-        
-        
-        
+        <h1 class="fuchidori">理系掲示板 mainページ</h1>
         
         
         <div class='categories'>

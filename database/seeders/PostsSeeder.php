@@ -40,12 +40,13 @@ class PostsSeeder extends Seeder
            ]);
          
          DB::table('posts')->insert([
-            'title' => 'test2',//一桁目がSemの4,二桁めがこのシート上の1
-            'body' => 'test用のデータをPostsSeederで入れてます2',
-            'category_id' => 31,
-            'thread_id' => 230,
+            'title' => '第四週目演習問題',//一桁目がSemの4,二桁めがこのシート上の1
+            'body' => '交流LC回路の状態方程式と特解を求めた',
+            'category_id' => 39,
+            'thread_id' => 24,
             'user_id' => 1,
-            'nickname' => 'mannzyuu'
+            'nickname' => 'mannzyuu',
+            'image_url' => "https://res.cloudinary.com/dehdvzqfw/image/upload/v1715328077/IMG_4825_wuznsf.jpg",
             
            ]);
            

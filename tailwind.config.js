@@ -13,6 +13,13 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                yellow: '#fef08a',
+            },
+            backgroundImage: {
+                background:"url('/img/school.jpg')" ,　//例：url('/img/background.jpg')
+            }
+          //ここまで追記
         },
     },
 
