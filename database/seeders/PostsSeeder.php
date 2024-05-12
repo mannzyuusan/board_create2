@@ -16,19 +16,7 @@ class PostsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-            'title' => 'test1',//一桁目がSemの4,二桁めがこのシート上の1
-            'body' => 'test用のデータをPostsSeederで入れてます',
-            'category_id' => 31,
-            'thread_id' => 230,
-            'user_id' => 1,
-            'nickname' => 'mannzyuu',
-            'image_url' => "",
-            ]);
-    
-    
-    
-    
+        
         DB::table('posts')->insert([
             'title' => '第四週目演習問題',//一桁目がSemの4,二桁めがこのシート上の1
             'body' => '線形代数の行列式の解き方を復習しよう',
@@ -48,6 +36,7 @@ class PostsSeeder extends Seeder
             'user_id' => 1,
             'nickname' => 'mannzyuu',
             'image_url' => "https://res.cloudinary.com/dehdvzqfw/image/upload/v1715328077/IMG_4825_wuznsf.jpg",
+            
             
            ]);
            
