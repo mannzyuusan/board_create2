@@ -64,18 +64,33 @@ class PostController extends Controller
     
 
     public function store(PostRequest $request, Post $post)
-    {
-        
+{
+    // 画像ファイルのアップロード
+    
+    if ($request->hasFile('image')) {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-       
-        
-        $input = $request['post'];
-        $input['user_id'] = Auth::id();//これでuser_idも取得できる
-        $input += ['image_url' => $image_url];
-        $post->fill($input)->save();
-        
-        return redirect("/home/{$post->category_id}");
+    } else {
+        $image_url = null; // 画像ファイルがアップロードされていない場合は null を設定
     }
+    
+    // PDFファイルのアップロード
+    if ($request->hasFile('pdf')) {
+        $pdf_url = Cloudinary::upload($request->file('pdf')->getRealPath())->getSecurePath();
+    } else {
+        $pdf_url = null; // PDFファイルがアップロードされていない場合は null を設定
+    }
+    
+    // フォームデータの処理
+    $input = $request['post'];
+    $input['user_id'] = Auth::id();
+    $input['image_url'] = $image_url;
+    $input['pdf_url'] = $pdf_url;
+    
+    // データの保存
+    $post->fill($input)->save();
+    
+    return redirect("/home/{$post->category_id}");
+}
     
 
 }

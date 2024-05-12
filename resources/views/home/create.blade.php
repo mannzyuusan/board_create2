@@ -31,7 +31,7 @@
                 @foreach($categories as $categorylist)
                     <option value="{{ $categorylist->id }}">{{ $categorylist->name }}</option>
                     <p class="category__error" style="color:red">{{ $errors->first('post.category_id') }}</p>
-                    @endforeach
+                @endforeach
             </select>
             
             <h2>投稿するスレッド</h2>
@@ -39,7 +39,7 @@
                 <option value="null" hidden>こちらから選択</option>
                 @foreach($threads as $threadlist)
                     <option value="{{ $threadlist->id }}">{{ $threadlist->name }}</option>
-                    @endforeach
+                @endforeach
             </select>
             
             <br>
@@ -50,6 +50,10 @@
                 <input type="file" name="image">
             </div>
             
+            <div class="pdf">
+                <h2>pdfの追加</h2>
+                <input type="file" name="pdf">
+            </div>
             <input type="submit" value="投稿する" class="button2">
         </form>
         <br>

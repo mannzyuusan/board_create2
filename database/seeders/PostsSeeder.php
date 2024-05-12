@@ -110,5 +110,35 @@ class PostsSeeder extends Seeder
             'nickname' => 'mannzyuu',
             'image_url' => "https://res.cloudinary.com/dehdvzqfw/image/upload/v1715442702/kf7e1w2t6uiukqkltiap.jpg",    
             ]);  
+            
+        DB::table('posts')->insert([
+            'title' => '第三週目の内容',//一桁目がSemの4,二桁めがこのシート上の1
+            'body' => 'スライドの穴埋め',
+            'category_id' => 31,
+            'thread_id' => 23,
+            'user_id' => 1,
+            'nickname' => 'mannzyuu',
+            'pdf_url' => "https://res.cloudinary.com/dehdvzqfw/image/upload/v1715496813/%E7%84%A1%E7%B7%9A%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%AD%A63_sshtkt.pdf",    
+            ]); 
+            
+        DB::table('posts')->insert([
+            'title' => '第二週目の内容',//一桁目がSemの4,二桁めがこのシート上の1
+            'body' => 'スライドの穴埋め',
+            'category_id' => 31,
+            'thread_id' => 22,
+            'user_id' => 1,
+            'nickname' => 'mannzyuu',
+            'pdf_url' => "https://res.cloudinary.com/dehdvzqfw/image/upload/v1715497176/%E7%84%A1%E7%B7%9A%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%AD%A62_compressed_ib8o0k.pdf",    
+            ]); 
+        
+        DB::table('posts')->insert([
+            'title' => '第一週目の内容',//一桁目がSemの4,二桁めがこのシート上の1
+            'body' => 'スライドの穴埋め',
+            'category_id' => 31,
+            'thread_id' => 21,
+            'user_id' => 1,
+            'nickname' => 'mannzyuu',
+            'pdf_url' => "https://res.cloudinary.com/dehdvzqfw/image/upload/v1715497006/%E7%84%A1%E7%B7%9A%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%AD%A61_c5mcky.pdf",    
+            ]);
     }
 }

@@ -46,8 +46,7 @@
                 </div>
                 <br>
             @endforeach
-            
-            
+                
 
             <a href="/main" class="btn_04">戻る</a>
             
