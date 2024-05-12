@@ -34,7 +34,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //メインページからそれぞれの科目に飛ぶルーティング
     Route::get('/home/{category}',[PostController::class,'index'])->name('home.index'); 
     
-    Route::get('/home/{category}/{thread}',[PostController::class,'threadsprt'])->name('home.sort'); 
+    
     
     //詳細画面に行くshow
     
