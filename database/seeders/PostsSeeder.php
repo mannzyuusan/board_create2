@@ -37,6 +37,7 @@ class PostsSeeder extends Seeder
             'nickname' => 'mannzyuu',
             'image_url' => "https://res.cloudinary.com/dehdvzqfw/image/upload/v1715328077/IMG_4825_wuznsf.jpg",
             
+            
            ]);
            
         DB::table('posts')->insert([
