@@ -47,11 +47,13 @@
             
             <div class="image">
                 <h2>画像の追加</h2>
+                <p>画像は10MBまで</p>
                 <input type="file" name="image">
             </div>
             
             <div class="pdf">
-                <h2>pdfの追加</h2>
+                <h2>PDFの追加</h2>
+                <p>PDFは10MBまで</p>
                 <input type="file" name="pdf">
             </div>
             <input type="submit" value="投稿する" class="button2">
