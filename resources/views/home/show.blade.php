@@ -8,10 +8,12 @@
                 <h1 class="title">本題：{{$post->title}}</h1>
                 <p>本文：{{$post->body}}</p>
                 <div>
-                    @if(!empty($post->image_url))
+                    @if($post->image_url)
                         <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                    @elseif($post->pdf_url)
+                        <embed src="{{ $post->pdf_url }}" type="application/pdf" width="100%" height="600px" />
                     @else
-                        <p></p>
+                        <p>コンテンツがありません。</p>
                     @endif
                 </div>
             </div>

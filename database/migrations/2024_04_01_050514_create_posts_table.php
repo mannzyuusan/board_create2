@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('nickname');//ユーザー名
             $table->string('image_url')->nullable(true);
+            $table->string('pdf_url')->nullable(true);
             $table->timestamps();
             $table->softDeletes();
         });
