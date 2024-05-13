@@ -20,7 +20,8 @@ class PostController extends Controller
     $query = Post::query();
 
     if (!empty($keyword)) {
-        $query->where('title', 'LIKE', "%{$keyword}%")
+        
+        $query->where('category_id', $category->id)->where('title', 'LIKE', "%{$keyword}%")
             ->orWhere('body', 'LIKE', "%{$keyword}%");
     }
 
