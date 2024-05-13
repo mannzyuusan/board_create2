@@ -18,11 +18,14 @@ a {
 }
 
 p {
+    @apply text-base;
+}
+p2 {
     @apply text-2xl;
 }
 
 .fuchidori {
-  color: #000;
+  color: #F97316;
   text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
               -1px 1px 0 #FFF, 1px -1px 0 #FFF,
               0px 1px 0 #FFF,  0-1px 0 #FFF,

@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         
     
-        <h1 class="fuchidori">{{$category->name}}</h1>
+        <h1 class="fuchidori " >{{$category->name}}</h1>
         
             <div>
                 <form action="{{ route('home.index', ['category' => $category->id]) }}" method="GET" class="search_container">
@@ -19,14 +19,18 @@
             
             @foreach ($posts as $postlist)
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="background:blue bg-cyan-100 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="bg-amber-50 overflow-hidden shadow-sm sm:rounded-lg p-5">
                         <div class='postlist'>
+                            <center>
                             <h2 class='title' >
                                 <a href="/home/{{$postlist->category_id}}/{{$postlist->id}}" class="btnlinestretches2">{{ $postlist->title }}</a>
                             </h2>
                             
-                            <p class='body'>{{ $postlist->body }}</p>
+                            <p class='body text-gray-600'>{{ $postlist->body }}</p>
                             
+                            <img src="{{$postlist->image_url}}"  alt="" width="100px"  >
+                            
+                            <br>
                             
                                 <div>
                                     @if($postlist->is_liked_by_auth_user())
@@ -41,6 +45,7 @@
                                         </a>  {{ optional($postlist->likes)->count() ?? 0 }}
                                     @endif
                                 </div>
+                            </center>
                         </div>
                     </div>
                 </div>

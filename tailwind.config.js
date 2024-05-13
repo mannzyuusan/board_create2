@@ -17,7 +17,7 @@ module.exports = {
                 yellow: '#fef08a',
             },
             backgroundImage: {
-                background:"url('/img/school.jpg')" ,　//例：url('/img/background.jpg')
+                background:"url('/img/school.png')" ,　//例：url('/img/background.jpg')
             }
           //ここまで追記
         },
